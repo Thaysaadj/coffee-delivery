@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body{
-    background-color: ${(props) => props.theme['background']} ;
+    background-color: ${(props) => props.theme['background-100']} ;
     color:${props => props.theme['base-title']} ;
     -webkit-font-smoothing: antiakiased;
   }
