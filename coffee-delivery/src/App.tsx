@@ -3,7 +3,7 @@ import { Header } from "./components/Header"
 import { GlobalStyle } from "./styles/global"
 import { defaultTheme } from "./styles/themes/default"
 import { Banner } from "./components/MainBanner"
-import { AllCoffees } from "./components/AllCoffees"
+import { AllCoffees } from "./pages/Home/components/AllCoffees"
 export function App() {
 
 

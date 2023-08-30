@@ -20,8 +20,9 @@ interface PropsCardCoffee {
   name: string
   description: string
   value: string
-
 }
+
+
 
 export const CardCoffee = ({imgCoffee, type, name, description, value}: PropsCardCoffee)=> {
   return (

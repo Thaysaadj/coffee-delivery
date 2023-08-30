@@ -1,5 +1,5 @@
-import { coffeeList } from "../../APICoffee/coffeList";
-import { CardCoffee } from "../CardCoffee";
+import { coffeeList } from "../../../../APICoffee/coffeList";
+import { CardCoffee } from "../../../../components/CardCoffee";
 import { MainAllCoffes } from "./styles";
 
 export const AllCoffees = () => {
@@ -12,7 +12,7 @@ export const AllCoffees = () => {
             imgCoffee={coffee.imgCoffee}
             type={coffee.type}
             name={coffee.name}
-            description={coffee.desciption}
+            description={coffee.description}
             value={coffee.value}
           />
         );

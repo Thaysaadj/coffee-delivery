@@ -1,119 +1,141 @@
+import expressoTradicional from '../assets/png/coffes/expressoTradicional.png'
+import expressoAmericano from '../assets/png/coffes/expressoAmericano.png'
+import expressoCremoso from '../assets/png/coffes/expressoCremoso.png'
+import expressoGelado from '../assets/png/coffes/expressoGelado.png'
+import cafecomleite from '../assets/png/coffes/cafecomleite.png'
+import latte from '../assets/png/coffes/latte.png'
+import capuccino from  '../assets/png/coffes/capuccino.png'
+import mocchiato from '../assets/png/coffes/mocchiato.png'
+import mocaccino from '../assets/png/coffes/mocaccino.png'
+import chocolateQuente from '../assets/png/coffes/chocolateQuente.png'
+import cubano from '../assets/png/coffes/cubano.png'
+import havaiano from '../assets/png/coffes/havaiano.png'
+import arabe from '../assets/png/coffes/arabe.png'
+import irlandes from '../assets/png/coffes/irlandes.png'
+
+export interface coffeeType {
+  id: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  img: any
+  name: string
+  description: string
+  value: number
+}
 
 export const coffeeList = [
   {
     id: "1",
-    imgCoffee: "../coffes/expressoTradicional.png",
+    imgCoffee: expressoTradicional,
     type: ["tradicional"],
     name: "Expresso Tradicional",
-    desciption: "O tradicional café feito com água quente e grãos moídos",
+    description: "O tradicional café feito com água quente e grãos moídos",
     value: "990"
   },
   {
     id: "2",
-    imgCoffee: "/assets/png/coffes/expressoAmericano.png",
+    imgCoffee: expressoAmericano,
     type: ["tradicional"],
     name: "Expresso Americano",
-    desciption: "Expresso diluído, menos intenso que o tradicional",
+    description: "Expresso diluído, menos intenso que o tradicional",
     value: "990",
   },
   {
     id: "3",
-    imgCoffee: "/assets/png/coffes/expressoCremoso.png",
+    imgCoffee: expressoCremoso,
     type: ["tradicional"],
     name: "Expresso Cremoso",
-    desciption: "ECafé expresso tradicional com espuma cremosa",
+    description: "ECafé expresso tradicional com espuma cremosa",
     value: "990",
   },
   {
     id: "4",
-    imgCoffee:
-      "../assets/png/coffes//assets/png/coffes/xpressoAmericano.png.png",
+    imgCoffee:expressoGelado,
     type: ["tradicional", "gelado"],
     name: "Expresso Gelado",
-    desciption: "Bebida preparada com café expresso e cubos de gelo",
+    description: "Bebida preparada com café expresso e cubos de gelo",
     value: "990",
   },
   {
     id: "5",
-    imgCoffee: "/assets/png/coffes/cofecomleite.png",
+    imgCoffee: cafecomleite,
     type: ["tradicional", "com leite"],
     name: "Café com Leite",
-    desciption: "Meio a meio de expresso tradicional com leite vaporizado",
+    description: "Meio a meio de expresso tradicional com leite vaporizado",
     value: "990",
   },
   {
     id: "6",
-    imgCoffee: "/assets/png/coffes/latte.png",
+    imgCoffee: latte,
     type: ["tradicional", "com leite"],
     name: "Latte",
-    desciption:
+    description:
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
     value: "990",
   },
   {
     id: "7",
-    imgCoffee: "/assets/png/coffes/capuccino.png",
+    imgCoffee: capuccino,
     type: ["tradicional", "com leite"],
     name: "Capuccino",
-    desciption:
+    description:
       "Bebida com canela feita de doses iguais de café, leite e espuma",
     value: "990",
   },
   {
     id: "8",
-    imgCoffee: "/assets/png/coffes/mocchiato.png",
+    imgCoffee: mocchiato,
     type: ["tradicional", "com leite"],
     name: "Mocchiato",
-    desciption: "Café expresso misturado com um pouco de leite quente e espuma",
+    description: "Café expresso misturado com um pouco de leite quente e espuma",
     value: "990",
   },
   {
     id: "9",
-    imgCoffee: "/assets/png/coffes/mocaccino.png",
+    imgCoffee: mocaccino,
     type: ["tradicional", "com leite"],
     name: "Mocaccino",
-    desciption: "Café expresso com calda de chocolate, pouco leite e espuma",
+    description: "Café expresso com calda de chocolate, pouco leite e espuma",
     value: "990",
   },
   {
     id: "10",
-    imgCoffee: "/assets/png/coffes/chocolateQuente.png",
+    imgCoffee: chocolateQuente,
     type: ["especial", "com leite"],
     name: "Chocolate Quente",
-    desciption: "Bebida feita com chocolate dissolvido no leite quente e café",
+    description: "Bebida feita com chocolate dissolvido no leite quente e café",
     value: "990",
   },
   {
     id: "11",
-    imgCoffee: "/assets/png/coffes/cubano.png",
+    imgCoffee: cubano,
     type: ["especial", "alcoólico", "gelado"],
     name: "Cubano",
-    desciption:
+    description:
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
     value: "990",
   },
   {
     id: "12",
-    imgCoffee: "/assets/png/coffes/havaiano.png",
+    imgCoffee: havaiano,
     type: ["especial"],
     name: "Havaiano",
-    desciption: "Bebida adocicada preparada com café e leite de coco",
+    description: "Bebida adocicada preparada com café e leite de coco",
     value: "990",
   },
   {
     id: "13",
-    imgCoffee: "/assets/png/coffes/arabe.png",
+    imgCoffee: arabe,
     type: ["especial"],
     name: "Árabe",
-    desciption: "Bebida preparada com grãos de café árabe e especiarias",
+    description: "Bebida preparada com grãos de café árabe e especiarias",
     value: "990",
   },
   {
     id: "14",
-    imgCoffee: "/assets/png/coffes/irlandes.png",
+    imgCoffee: irlandes,
     type: ["especial", "alcoólico"],
     name: "irlandês",
-    desciption: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+    description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
     value: "990",
   },
 ];
