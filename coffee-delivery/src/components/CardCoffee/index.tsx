@@ -12,27 +12,40 @@ import {
   MainContainerCoffee,
   SectionAcsiotionCoffee,
   SectionQuantity,
+  SectionTypes,
 } from "./styles";
 
 interface PropsCardCoffee {
-  imgCoffee: string
-  type: string[]
-  name: string
-  description: string
-  value: string
+  imgCoffee: string;
+  type: string[];
+  name: string;
+  description: string;
+  value: string;
 }
 
+export const CardCoffee = ({
+  imgCoffee,
+  type,
+  name,
+  description,
+  value,
+}: PropsCardCoffee) => {
+  const numericValue = parseFloat(value);
 
-
-export const CardCoffee = ({imgCoffee, type, name, description, value}: PropsCardCoffee)=> {
   return (
     <MainContainerCoffee>
       <FigureImageCoffee>
         <img src={imgCoffee} />
       </FigureImageCoffee>
-      <ArticleTypeCoffee>
-        <p>{type.join(", ")}</p>
-      </ArticleTypeCoffee>
+      <SectionTypes>
+      {type.map((typeItem, index) => {
+        return (
+          <ArticleTypeCoffee>
+            <p key={index}>{typeItem}</p>
+          </ArticleTypeCoffee>
+        );
+      })}
+      </SectionTypes>
       <ArticleNemeCoffee>
         <p>{name}</p>
       </ArticleNemeCoffee>
@@ -43,7 +56,7 @@ export const CardCoffee = ({imgCoffee, type, name, description, value}: PropsCar
         <ArticlePriceCoffee>
           <p>
             <span>R$</span>
-            {value}
+            {numericValue.toFixed(2).split(".").join(",")}
           </p>
         </ArticlePriceCoffee>
         <SectionQuantity>

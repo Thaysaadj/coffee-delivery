@@ -11,17 +11,16 @@ import {
   MainBanner,
   SectionBanner,
 } from "./styled";
-import cartWite from "../../assets/svg/cart-wite.svg";
-import box from "../../assets/svg/box.svg";
-import timer from "../../assets/svg/timer.svg";
-import miniCoffee from "../../assets/svg/miniCoffee.svg";
-import imgBanner from "../../assets/png/imgBanner.png";
+import cartWite from "../../../assets/svg/cart-wite.svg"
+import box from "../../../assets/svg/box.svg";
+import timer from "../../../assets/svg/timer.svg";
+import miniCoffee from "../../../assets/svg/miniCoffee.svg";
+import imgBanner from "../../../assets/png/imgBanner.png";
 
 export const Banner = () => {
   return (
     <MainBanner>
       <SectionBanner>
-        {/* <ArticleBannerTitleAndSubTitleAndImg> */}
         <HeaderBannerTitle>
           <h2>Encontre o café perfeito para qualquer hora do dia</h2>
           <ArticleBannerSubtitle>
@@ -60,8 +59,6 @@ export const Banner = () => {
             <p>O café chega fresquinho até você</p>
           </BenefitsCoffee>
         </ArticleBannerBenefits>
-
-        {/* </ArticleBannerTitleAndSubTitleAndImg> */}
       </SectionBanner>
     </MainBanner>
   );

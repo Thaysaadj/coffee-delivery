@@ -20,6 +20,12 @@ export const FigureImageCoffee = styled.figure`
   }
 `;
 
+export const SectionTypes = styled.section`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+`;
+
 export const ArticleTypeCoffee = styled.article`
   display: flex;
   align-items: center;
