@@ -15,9 +15,11 @@ export const Header = () => {
   return (
     <MainHeader>
       <SectionHeader>
-        <LogoHeader>
-          <img src={logo} alt="" />
-        </LogoHeader>
+        <NavLink to="/" title="Home">
+          <LogoHeader>
+            <img src={logo} alt="" />
+          </LogoHeader>
+        </NavLink>
         <ArticleFigure>
           <FigureLocale>
             <img src={locale} alt="" />

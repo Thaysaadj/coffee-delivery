@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { coffeeList } from "../../../APICoffee/coffeList";
 import { CardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
 import {
@@ -14,6 +14,8 @@ import {
 } from "./styles";
 
 export const CoffeeSelected = () => {
+
+  const navigate = useNavigate()
   return (
     <MainCoffeeSelected>
       <ArticleTitle>
@@ -30,7 +32,6 @@ export const CoffeeSelected = () => {
             />
           );
         })}
-        {/* <SectionInformationOrder> */}
         <SectionTotalPrice>
           <ArticleTotalitens>
             <p>Total de itens</p>
@@ -45,12 +46,10 @@ export const CoffeeSelected = () => {
             <p>R$ 33,20</p>
           </ArticleTotal>
         </SectionTotalPrice>
-        <NavLink to="confirmed-order" title="confirmedorder">
-          <SectionButtonConfirmation>
+          <SectionButtonConfirmation onClick={() => navigate("/confirmed")}>
             <p>Confirmar Pedido</p>
           </SectionButtonConfirmation>
-        </NavLink>
-        {/* </SectionInformationOrder> */}
+        
       </SectionCoffeesSlected>
     </MainCoffeeSelected>
   );
