@@ -1,4 +1,5 @@
 import locale from "../../../assets/svg/locale.svg";
+import { InfoPaymant } from "../InfoPaymant";
 import {
   ArticleInformation,
   ArticleRegisterTtile,
@@ -56,6 +57,7 @@ export const Register = () => {
           </SectionLocaleAddressInput>
         </form>
       </SectionRegisterAddress>
+      <InfoPaymant />
     </MainRegisterCheckout>
   );
 };

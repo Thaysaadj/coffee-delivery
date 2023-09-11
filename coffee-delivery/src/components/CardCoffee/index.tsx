@@ -31,6 +31,7 @@ export const CardCoffee = ({
   value,
 }: PropsCardCoffee) => {
   const numericValue = parseFloat(value);
+  
 
   return (
     <MainContainerCoffee>

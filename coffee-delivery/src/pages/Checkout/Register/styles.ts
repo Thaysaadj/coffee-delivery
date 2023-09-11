@@ -4,6 +4,7 @@ export const MainRegisterCheckout = styled.main`
   padding: 0 160px;
   display: flex;
   flex-direction: column;
+  gap:12px;
 `;
 export const ArticleRegisterTtile = styled.article`
   padding: 40px 0 15px 0;

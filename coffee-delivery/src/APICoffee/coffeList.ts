@@ -13,13 +13,14 @@ import havaiano from '../assets/png/coffes/havaiano.png'
 import arabe from '../assets/png/coffes/arabe.png'
 import irlandes from '../assets/png/coffes/irlandes.png'
 
-export interface coffeeType {
+export interface CoffeeType {
   id: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  img: any
+  imgCoffee: string
+  type:string[]
   name: string
   description: string
   value: number
+  quntity: number
 }
 
 export const coffeeList = [
