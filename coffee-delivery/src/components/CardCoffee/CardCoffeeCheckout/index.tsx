@@ -12,7 +12,8 @@ import {
 } from "./styles";
 import { SectionQuantity } from "../styles";
 
-interface PropsCardCoffeeCheckout {
+export interface PropsCardCoffeeCheckout {
+  id?: number
   imgCoffee: string;
   name: string;
   value: string;

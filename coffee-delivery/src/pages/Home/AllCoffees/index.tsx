@@ -4,6 +4,7 @@ import { Banner } from "../Banner";
 import { AllCoffeeTitle, MainAllCoffes } from "./styles";
 
 export const AllCoffees = () => {
+
   return (
     <>
       <Banner/>
@@ -15,11 +16,7 @@ export const AllCoffees = () => {
           return (
             <CardCoffee
               key={coffee.id}
-              imgCoffee={coffee.imgCoffee}
-              type={coffee.type}
-              name={coffee.name}
-              description={coffee.description}
-              value={coffee.value}
+              coffee={coffee}
             />
           );
         })}

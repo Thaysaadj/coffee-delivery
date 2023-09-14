@@ -1,6 +1,6 @@
-import { useNavigate} from "react-router-dom";
-import { coffeeList } from "../../../APICoffee/coffeList";
-import { CardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
+import { useNavigate } from "react-router-dom";
+// import { coffeeList } from "../../../APICoffee/coffeList";
+import { CardCoffeeCheckout, PropsCardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
 import {
   ArticleTitle,
   ArticleTotal,
@@ -13,25 +13,20 @@ import {
   SectionTotalPrice,
 } from "./styles";
 
-export const CoffeeSelected = () => {
-
-  const navigate = useNavigate()
+export const CoffeeSelected = ({id, imgCoffee, name, value}:PropsCardCoffeeCheckout) => {
+  const navigate = useNavigate();
   return (
     <MainCoffeeSelected>
       <ArticleTitle>
         <p>Cafés selecionados</p>
       </ArticleTitle>
       <SectionCoffeesSlected>
-        {coffeeList.map((coffee) => {
-          return (
-            <CardCoffeeCheckout
-              key={coffee.id}
-              imgCoffee={coffee.imgCoffee}
-              name={coffee.name}
-              value={coffee.value}
-            />
-          );
-        })}
+        <CardCoffeeCheckout
+          key={id}
+          imgCoffee={imgCoffee}
+          name={name}
+          value={value}
+        />
         <SectionTotalPrice>
           <ArticleTotalitens>
             <p>Total de itens</p>
@@ -46,10 +41,9 @@ export const CoffeeSelected = () => {
             <p>R$ 33,20</p>
           </ArticleTotal>
         </SectionTotalPrice>
-          <SectionButtonConfirmation onClick={() => navigate("/confirmed")}>
-            <p>Confirmar Pedido</p>
-          </SectionButtonConfirmation>
-        
+        <SectionButtonConfirmation onClick={() => navigate("/confirmed")}>
+          <p>Confirmar Pedido</p>
+        </SectionButtonConfirmation>
       </SectionCoffeesSlected>
     </MainCoffeeSelected>
   );

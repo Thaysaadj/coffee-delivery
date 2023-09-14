@@ -12,18 +12,10 @@ import cubano from '../assets/png/coffes/cubano.png'
 import havaiano from '../assets/png/coffes/havaiano.png'
 import arabe from '../assets/png/coffes/arabe.png'
 import irlandes from '../assets/png/coffes/irlandes.png'
+import { Coffee } from '../types/Coffee'
 
-export interface CoffeeType {
-  id: string
-  imgCoffee: string
-  type:string[]
-  name: string
-  description: string
-  value: number
-  quntity: number
-}
 
-export const coffeeList = [
+export const coffeeList:Coffee[] =  [
   {
     id: "1",
     imgCoffee: expressoTradicional,
@@ -31,7 +23,6 @@ export const coffeeList = [
     name: "Expresso Tradicional",
     description: "O tradicional café feito com água quente e grãos moídos",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -41,7 +32,6 @@ export const coffeeList = [
     name: "Expresso Americano",
     description: "Expresso diluído, menos intenso que o tradicional",
     value: "9.90",
-    quantity: 0
   },
   {
     id: "3",
@@ -50,7 +40,6 @@ export const coffeeList = [
     name: "Expresso Cremoso",
     description: "ECafé expresso tradicional com espuma cremosa",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -60,7 +49,6 @@ export const coffeeList = [
     name: "Expresso Gelado",
     description: "Bebida preparada com café expresso e cubos de gelo",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -70,7 +58,6 @@ export const coffeeList = [
     name: "Café com Leite",
     description: "Meio a meio de expresso tradicional com leite vaporizado",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -81,7 +68,6 @@ export const coffeeList = [
     description:
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -92,7 +78,6 @@ export const coffeeList = [
     description:
       "Bebida com canela feita de doses iguais de café, leite e espuma",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -102,7 +87,6 @@ export const coffeeList = [
     name: "Mocchiato",
     description: "Café expresso misturado com um pouco de leite quente e espuma",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -112,7 +96,6 @@ export const coffeeList = [
     name: "Mocaccino",
     description: "Café expresso com calda de chocolate, pouco leite e espuma",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -122,7 +105,6 @@ export const coffeeList = [
     name: "Chocolate Quente",
     description: "Bebida feita com chocolate dissolvido no leite quente e café",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -133,7 +115,6 @@ export const coffeeList = [
     description:
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -143,7 +124,6 @@ export const coffeeList = [
     name: "Havaiano",
     description: "Bebida adocicada preparada com café e leite de coco",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -153,7 +133,6 @@ export const coffeeList = [
     name: "Árabe",
     description: "Bebida preparada com grãos de café árabe e especiarias",
     value: "9.90",
-    quantity: 0
 
   },
   {
@@ -163,7 +142,6 @@ export const coffeeList = [
     name: "irlandês",
     description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
     value: "9.90",
-    quantity: 0
 
   },
 ];

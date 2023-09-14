@@ -42,13 +42,23 @@ export const ArticleTitleConfirmedOrder = styled.article`
 
 export const SectionInformationConfirmationOrder = styled.section`
   display: flex;
-  width: 526px;
-  padding: 40px;
+  min-width: 32rem;
+  padding: 2.5rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
-  border-radius: 6px 36px;
-  border: 1px solid #dbac2c;
+  background-color: ${props => props.theme['--base-background']};
+  gap: 2rem;
+  border-radius: 6px 36px 6px 36px;
+  position: relative;
+
+  &::before{
+    content: "";
+    position:absolute;
+    inset: -1px ;
+    z-index: -1;
+    border-radius: 7px 37px 7px 37px ;
+    background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047F8 98.76%) ;
+  }
 `;
 
 const BaseItensConfirmationOrder = styled.article`
@@ -101,6 +111,7 @@ export const FigureTimer = styled.figure`
 `;
 
 export const ArticleFormOfPaymentConfirmationOrder = styled(BaseItensConfirmationOrder)`
+
   p{
     width:10.125rem ;
   }

@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const MainHeader = styled.main`
   width: 100%;
   height: 104px;
+  position: sticky;
+  top:0;
+  left:0 ;
+  z-index: 5 ;
+  background: ${props => props.theme['--base-background']}
+
 `;
 
 export const SectionHeader = styled.section`
@@ -49,4 +55,25 @@ export const FigureLocale = styled(BaseFigure)`
 
 export const FigureCart = styled(BaseFigure)`
   background-color: ${(props) => props.theme["--yellow-light"]};
+  position:relative;
+
+  span{
+    position:absolute;
+    width:1.25rem;
+    height:1.25rem;
+    border-radius: 50% ;
+    top: calc(-1.25rem /2);
+    right: calc(-1.25rem /2);
+    color:${props => props.theme['--white']} ;
+    background:${props => props.theme['--yellow-dark']} ;
+
+
+    display:flex ;
+    align-items:center ;
+    justify-content:center;
+    font-size: 0.75rem ;
+    font-weight: 700 ;
+
+  }
+
 `;

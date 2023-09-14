@@ -10,8 +10,11 @@ import {
   SectionHeader,
 } from "./styles";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 export const Header = () => {
+  const {cartQuantity} = useCart()
+
   return (
     <MainHeader>
       <SectionHeader>
@@ -27,6 +30,7 @@ export const Header = () => {
           </FigureLocale>
           <NavLink to="checkout" title="Checkout">
             <FigureCart>
+              { cartQuantity >= 1 && <span>{cartQuantity}</span>}
               <img src={cart} alt="" />
             </FigureCart>
           </NavLink>

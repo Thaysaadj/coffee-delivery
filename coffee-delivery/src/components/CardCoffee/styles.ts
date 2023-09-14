@@ -7,7 +7,7 @@ export const MainContainerCoffee = styled.main`
   justify-content: space-between;
   align-items: center;
   height: 310px;
-  background: ${(props) => props.theme["--base-card"]};
+  background: #F3F2F2;
   border-radius: 6px 36px;
 `;
 export const FigureImageCoffee = styled.figure`
@@ -102,47 +102,27 @@ export const SectionQuantity = styled.section`
 `;
 
 export const ArticleQuantityItem = styled.article`
-  display: flex;
-  padding: 8px;
-  display: flex;
-  height: 38px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 6px;
-  background: ${(props) => props.theme["--base-button"]};
+  display:flex;
+  width:7.5rem;
+  gap:0.3rem;
+  
+  > button {
+    width: 2.375rem;
+    height: 2.375rem;
+    border:none ;
+    background-color: ${(props) => props.theme['--purple-dark']};
+    color: #F3F2F2;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    transition:0.4s ;
 
-  span:nth-child(1) {
-    width: 14px;
-    height: 14px;
-  }
-
-  span:nth-child(2) {
-    width: 20px;
-    color: ${(props) => props.theme["--base-title"]};
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-  }
-
-  span:nth-child(3) {
-    width: 14px;
-    height: 14px;
+    &:hover{
+      background-color:${props => props.theme['--purple']} ;
+    }
   }
 `;
 
-export const FigureIconPurchase = styled.article`
-  width: 38px;
-  height: 38px;
-  background-color: ${(props) => props.theme["--purple-dark"]};
-  display: flex;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 6px;
-`;
+

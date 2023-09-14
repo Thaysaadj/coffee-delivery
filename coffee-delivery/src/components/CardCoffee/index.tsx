@@ -1,57 +1,66 @@
-import cartWite from "../../assets/svg/cart-wite.svg";
-import menos from "../../assets/svg/menos.svg";
-import mais from "../../assets/svg/mais.svg";
 import {
   ArticleDescriptionCoffee,
   ArticleNemeCoffee,
   ArticlePriceCoffee,
   ArticleQuantityItem,
   ArticleTypeCoffee,
-  FigureIconPurchase,
   FigureImageCoffee,
   MainContainerCoffee,
   SectionAcsiotionCoffee,
-  SectionQuantity,
   SectionTypes,
 } from "./styles";
+import { useCart } from "../../hooks/useCart";
+import { Coffee } from "../../types/Coffee";
+import { useState } from "react";
+import { QuantityInput } from "../QuantityInput";
+import { ShoppingCart } from "phosphor-react";
 
-interface PropsCardCoffee {
-  imgCoffee: string;
-  type: string[];
-  name: string;
-  description: string;
-  value: string;
+export interface CoffeeProps {
+  coffee: Coffee;
 }
 
-export const CardCoffee = ({
-  imgCoffee,
-  type,
-  name,
-  description,
-  value,
-}: PropsCardCoffee) => {
-  const numericValue = parseFloat(value);
-  
+export const CardCoffee = ({ coffee }: CoffeeProps) => {
+  //Estado que controla a quantidade de itens
+  const [quantity, setQuantity] = useState(1)
+  //Função que pega o estado atual (state) e adiciona 1
+  function handleIncrease() {
+    setQuantity(state => state +1)
+  }
+  //Função que pega o estado atual (state) e remove 1
+  function handleDecrease() {
+    setQuantity(state => state -1)
+  }
+
+  const { addCoffeeToCart } = useCart();
+  //Essa função vai desestuturar o café e adicionar uma quanridade.
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
+  }
+  const numericValue = parseFloat(coffee.value);
 
   return (
     <MainContainerCoffee>
       <FigureImageCoffee>
-        <img src={imgCoffee} />
+        <img src={coffee.imgCoffee} />
       </FigureImageCoffee>
       <SectionTypes>
-      {type.map((typeItem, index) => {
-        return (
-          <ArticleTypeCoffee>
-            <p key={index}>{typeItem}</p>
-          </ArticleTypeCoffee>
-        );
-      })}
+        {coffee.type.map((typeItem) => {
+          return (
+            <ArticleTypeCoffee>
+              <p key={`type_${coffee.id}_${coffee.type}`}>{typeItem}</p>
+            </ArticleTypeCoffee>
+          );
+        })}
       </SectionTypes>
       <ArticleNemeCoffee>
-        <p>{name}</p>
+        <p>{coffee.name}</p>
       </ArticleNemeCoffee>
       <ArticleDescriptionCoffee>
-        <p>{description}</p>
+        <p>{coffee.description}</p>
       </ArticleDescriptionCoffee>
       <SectionAcsiotionCoffee>
         <ArticlePriceCoffee>
@@ -60,20 +69,16 @@ export const CardCoffee = ({
             {numericValue.toFixed(2).split(".").join(",")}
           </p>
         </ArticlePriceCoffee>
-        <SectionQuantity>
-          <ArticleQuantityItem>
-            <span>
-              <img src={menos} />
-            </span>
-            <span>1</span>
-            <span>
-              <img src={mais} />
-            </span>
-          </ArticleQuantityItem>
-          <FigureIconPurchase>
-            <img src={cartWite} />
-          </FigureIconPurchase>
-        </SectionQuantity>
+        <ArticleQuantityItem>
+          <QuantityInput 
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            quantity={quantity}
+          />
+          <button onClick={handleAddToCart}>
+            <ShoppingCart size={22} weight="fill"/>
+          </button>
+        </ArticleQuantityItem>
       </SectionAcsiotionCoffee>
     </MainContainerCoffee>
   );
