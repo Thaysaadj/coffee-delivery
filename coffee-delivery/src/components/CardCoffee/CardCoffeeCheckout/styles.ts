@@ -7,7 +7,7 @@ export const MainCardCoffeeCheckout = styled.main`
   height: 80px;
   padding: 8px 4px;
   justify-content: space-between;
-  background: ${props => props.theme['--base-card']};
+  background: ${(props) => props.theme["--base-card"]};
 `;
 export const SectionImgAndDetails = styled.section`
   display: flex;
@@ -27,8 +27,11 @@ export const FigureImgCoffeeCheckout = styled.figure`
   }
 `;
 export const SectionDetailsQuantityCoffeeCheckout = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   p {
-    color: ${props => props.theme['--base-subtitle']};
+    color: ${(props) => props.theme["--base-subtitle"]};
 
     /* Text/Regular M */
     font-family: "Roboto", sans-serif;
@@ -43,7 +46,7 @@ export const SectionQuantity = styled.section``;
 
 export const ArticleQuantityItemCoffeeCheckout = styled.article`
   border-radius: 6px;
-  background: ${props => props.theme['--base-button']};
+  background: ${(props) => props.theme["--base-button"]};
   display: flex;
   height: 32px;
   padding: 8px;
@@ -71,7 +74,7 @@ export const ArticleQuantityItemCoffeeCheckout = styled.article`
   }
 `;
 
-export const ArticleRemove = styled.article`
+export const ButtonRemove = styled.button`
   display: flex;
   height: 32px;
   padding: 0px 8px;
@@ -79,16 +82,13 @@ export const ArticleRemove = styled.article`
   align-items: center;
   gap: 4px;
   border-radius: 6px;
-  background: ${props => props.theme['--base-button']};
-
-  img {
-    width: 16px;
-    height: 16px;
-  }
+  background: ${(props) => props.theme["--base-button"]};
+  border: none;
+  color: ${props => props.theme['--purple']} ;
 
   p {
-    color: ${props => props.theme['--base-text']};
-    font-family: 'Roboto', sans-serif;
+    color: ${(props) => props.theme["--base-text"]};
+    font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -98,11 +98,11 @@ export const ArticleRemove = styled.article`
 `;
 
 export const ArticlePriceCoffeeCheckout = styled.article`
-  color: ${props => props.theme['--base-text']};
+  color: ${(props) => props.theme["--base-text"]};
   text-align: right;
 
   /* Text/Bold M */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;

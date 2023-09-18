@@ -14,6 +14,7 @@ import { Coffee } from "../../types/Coffee";
 import { useState } from "react";
 import { QuantityInput } from "../QuantityInput";
 import { ShoppingCart } from "phosphor-react";
+import { formatMoney } from "../../utils/formatMoney";
 
 export interface CoffeeProps {
   coffee: Coffee;
@@ -21,14 +22,14 @@ export interface CoffeeProps {
 
 export const CardCoffee = ({ coffee }: CoffeeProps) => {
   //Estado que controla a quantidade de itens
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
   //Função que pega o estado atual (state) e adiciona 1
   function handleIncrease() {
-    setQuantity(state => state +1)
+    setQuantity((state) => state + 1);
   }
   //Função que pega o estado atual (state) e remove 1
   function handleDecrease() {
-    setQuantity(state => state -1)
+    setQuantity((state) => state - 1);
   }
 
   const { addCoffeeToCart } = useCart();
@@ -40,7 +41,10 @@ export const CardCoffee = ({ coffee }: CoffeeProps) => {
     };
     addCoffeeToCart(coffeeToAdd);
   }
-  const numericValue = parseFloat(coffee.value);
+
+  const coffeeTotal = coffee.value;
+
+  const formatPrice = formatMoney(coffeeTotal);
 
   return (
     <MainContainerCoffee>
@@ -64,19 +68,16 @@ export const CardCoffee = ({ coffee }: CoffeeProps) => {
       </ArticleDescriptionCoffee>
       <SectionAcsiotionCoffee>
         <ArticlePriceCoffee>
-          <p>
-            <span>R$</span>
-            {numericValue.toFixed(2).split(".").join(",")}
-          </p>
+          <p>{formatPrice}</p>
         </ArticlePriceCoffee>
         <ArticleQuantityItem>
-          <QuantityInput 
+          <QuantityInput
             onIncrease={handleIncrease}
             onDecrease={handleDecrease}
             quantity={quantity}
           />
           <button onClick={handleAddToCart}>
-            <ShoppingCart size={22} weight="fill"/>
+            <ShoppingCart size={22} weight="fill" />
           </button>
         </ArticleQuantityItem>
       </SectionAcsiotionCoffee>

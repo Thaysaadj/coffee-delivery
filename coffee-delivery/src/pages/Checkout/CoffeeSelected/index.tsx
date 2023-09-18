@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 // import { coffeeList } from "../../../APICoffee/coffeList";
-import { CardCoffeeCheckout, PropsCardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
+import { CardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
 import {
   ArticleTitle,
   ArticleTotal,
@@ -12,36 +12,50 @@ import {
   // SectionInformationOrder,
   SectionTotalPrice,
 } from "./styles";
+import { useCart } from "../../../hooks/useCart";
+import { formatMoney } from "../../../utils/formatMoney";
 
-export const CoffeeSelected = ({id, imgCoffee, name, value}:PropsCardCoffeeCheckout) => {
+const DELIVERY_PRICE = 3.5
+
+export const CoffeeSelected = () => {
+  const { cartItems, cartItemsTotal, cartQuantity } = useCart();
+
+  const cartTotal = DELIVERY_PRICE + cartItemsTotal
+
+  const formattedItemsTotal = formatMoney(cartItemsTotal)
+  const formattedCartTotal = formatMoney(cartTotal)
+  const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE)
+
+
   const navigate = useNavigate();
   return (
     <MainCoffeeSelected>
       <ArticleTitle>
         <p>Cafés selecionados</p>
       </ArticleTitle>
+
       <SectionCoffeesSlected>
-        <CardCoffeeCheckout
-          key={id}
-          imgCoffee={imgCoffee}
-          name={name}
-          value={value}
-        />
+        {cartItems.map((item) => (
+          <CardCoffeeCheckout 
+          key={item.id}
+          coffee={item}
+          />
+        ))}
         <SectionTotalPrice>
           <ArticleTotalitens>
             <p>Total de itens</p>
-            <p>R$ 29,70</p>
+            <p>R$ {formattedItemsTotal}</p>
           </ArticleTotalitens>
           <ArticleValueShipping>
             <p>Entrega</p>
-            <p>R$ 3,50</p>
+            <p>R$ {formattedDeliveryPrice}</p>
           </ArticleValueShipping>
           <ArticleTotal>
             <p>Total</p>
-            <p>R$ 33,20</p>
+            <p>R$ {formattedCartTotal}</p>
           </ArticleTotal>
         </SectionTotalPrice>
-        <SectionButtonConfirmation onClick={() => navigate("/confirmed")}>
+        <SectionButtonConfirmation disabled={cartQuantity<= 0} onClick={() => navigate("/confirmed")}>
           <p>Confirmar Pedido</p>
         </SectionButtonConfirmation>
       </SectionCoffeesSlected>

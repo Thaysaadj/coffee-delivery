@@ -9,6 +9,7 @@ export const QuantityInputContainer = styled.div`
   gap: 4px ;
   border-radius: 6px ;
   padding: 0.5rem ;
+  width:4.5rem;
 
   input{
 

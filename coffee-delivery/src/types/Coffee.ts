@@ -1,8 +1,8 @@
 export interface Coffee {
-  id: string;
+  id: number;
   imgCoffee: string;
   type: string[];
   name: string;
   description: string;
-  value: string;
+  value: number;
 }

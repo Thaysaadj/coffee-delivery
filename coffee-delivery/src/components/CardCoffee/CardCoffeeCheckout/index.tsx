@@ -1,57 +1,66 @@
-import trash from "../../../assets/svg/trash.svg";
-import mais from "../../../assets/svg/mais.svg";
-import menos from "../../../assets/svg/menos.svg";
 import {
   ArticlePriceCoffeeCheckout,
-  ArticleQuantityItemCoffeeCheckout,
-  ArticleRemove,
+  ButtonRemove,
   FigureImgCoffeeCheckout,
   MainCardCoffeeCheckout,
   SectionDetailsQuantityCoffeeCheckout,
   SectionImgAndDetails,
 } from "./styles";
 import { SectionQuantity } from "../styles";
+import { CartItem } from "../../../context/CoffeeContext";
+import { Trash } from "phosphor-react";
+import { QuantityInput } from "../../QuantityInput";
+import { useCart } from "../../../hooks/useCart";
+import { formatMoney } from "../../../utils/formatMoney";
 
-export interface PropsCardCoffeeCheckout {
-  id?: number
-  imgCoffee: string;
-  name: string;
-  value: string;
+interface CoffeeCartCardProps {
+  coffee: CartItem;
 }
 
-export const CardCoffeeCheckout = ({imgCoffee, name,value}: PropsCardCoffeeCheckout) => {
+export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
+  const { changeCartItemQuantity, removeCartItem } = useCart();
 
-  const valueCardCheckout =  parseFloat(value)
+  function handleIncrease() {
+    changeCartItemQuantity(coffee.id, "increase");
+  }
+
+  function handleDecrease() {
+    changeCartItemQuantity(coffee.id, "decrease");
+  }
+
+  function handleRemove (){
+    removeCartItem( coffee.id)
+  }
+
+  const coffeeTotal = coffee.value * coffee.quantity
+
+  const formatPrice = formatMoney(coffeeTotal)
 
   return (
     <MainCardCoffeeCheckout>
       <SectionImgAndDetails>
         <FigureImgCoffeeCheckout>
-          <img src={imgCoffee} alt="" />
+          <img src={coffee.imgCoffee} alt="" />
         </FigureImgCoffeeCheckout>
         <SectionDetailsQuantityCoffeeCheckout>
-          <p>{name}</p>
+          <p>{coffee.name}</p>
           <SectionQuantity>
-            <ArticleQuantityItemCoffeeCheckout>
-              <span>
-                <img src={menos} />
-              </span>
-              <span>1</span>
-              <span>
-                <img src={mais} />
-              </span>
-            </ArticleQuantityItemCoffeeCheckout>
-            <ArticleRemove>
-              <img src={trash} />
+            <QuantityInput
+              size="small"
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              quantity={coffee.quantity}
+            />
+            <ButtonRemove onClick={handleRemove}>
+              <Trash />
               <p>Remover</p>
-            </ArticleRemove>
+            </ButtonRemove>
           </SectionQuantity>
         </SectionDetailsQuantityCoffeeCheckout>
       </SectionImgAndDetails>
       <ArticlePriceCoffeeCheckout>
         <p>
-          <span>R$</span>
-          {valueCardCheckout.toFixed(2).split(".").join(",")}
+          R${formatPrice}
         </p>
       </ArticlePriceCoffeeCheckout>
     </MainCardCoffeeCheckout>
