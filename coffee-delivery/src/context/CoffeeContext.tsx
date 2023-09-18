@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 import { produce } from "immer";
 import { Coffee } from "../types/Coffee";
 
@@ -21,10 +21,19 @@ interface CartContextType {
 interface CartContextProviderProps {
   children: ReactNode;
 }
+
+const COFFEE_ITEMS_STOREGE_KEY = "coffeeDelivery:cartItems"
+
 export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storegeCartItems = localStorage.getItem(COFFEE_ITEMS_STOREGE_KEY)
+      if(storegeCartItems){
+        return JSON.parse(storegeCartItems)
+      }
+      return []
+  });
 
   const cartQuantity = cartItems.length;
 
@@ -51,7 +60,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   function changeCartItemQuantity(
     cartItemId: number,
-    type: "increase" | "decrease"
+    type: 'increase' | 'decrease'
   ) {
     const newCart = produce(cartItems, (draft) => {
       const coffeeExistsInCart = cartItems.findIndex(
@@ -61,7 +70,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       if (coffeeExistsInCart >= 0) {
         const item = draft[coffeeExistsInCart];
         draft[coffeeExistsInCart].quantity =
-          type === "increase" ? item.quantity + 1 : item.quantity - 1;
+          type === 'increase' ? item.quantity + 1 : item.quantity - 1;
       }
     });
 
@@ -80,7 +89,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart)
   }
 
-
+  useEffect(() => {
+    localStorage.setItem(COFFEE_ITEMS_STOREGE_KEY, JSON.stringify(cartItems))
+  }, [cartItems])
 
   return (
     <CartContext.Provider
