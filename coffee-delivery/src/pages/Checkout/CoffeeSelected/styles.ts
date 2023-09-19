@@ -98,6 +98,7 @@ export const SectionButtonConfirmation = styled.button`
   gap: 4px;
   align-self: stretch;
   border:none;
+  cursor: pointer;
 
   p {
     color: var(--base-white, #fff);
@@ -109,6 +110,10 @@ export const SectionButtonConfirmation = styled.button`
     font-weight: 700;
     line-height: 160%; /* 22.4px */
     text-transform: uppercase;
+  }
+
+  :focus{
+    border-color : ${props => props.theme['--yellow-dark']}
   }
 `;
 

@@ -41,6 +41,11 @@ export const ArticleSubtitlePaymant = styled.article`
 export const SectionTypeOfPaymant = styled.section`
   display: flex;
   gap: 12px;
+
+  :hover {
+    background: ${(props) => props.theme["--purple-light"]};
+  }
+
 `;
 const BaseTypesOfPaymant = styled.article`
   padding: 16px;
@@ -49,13 +54,16 @@ const BaseTypesOfPaymant = styled.article`
   justify-content: center;
   gap: 12px;
   border-radius: 6px;
-  border: 1px solid ${(porps) => porps.theme["--purple"]};
-  background: ${(porps) => porps.theme["--purple-light"]};
+  background: ${(props) => props.theme["--base-button"]};
+
+
 `;
 
 export const ArticleCreditCard = styled(BaseTypesOfPaymant)`
+
+
   p {
-    color: var(--base-text, #574f4d);
+    color: ${props => props.theme['--base-text']};
 
     /* Components/Button S */
     font-family: Roboto;
@@ -65,6 +73,8 @@ export const ArticleCreditCard = styled(BaseTypesOfPaymant)`
     line-height: 160%; /* 19.2px */
     text-transform: uppercase;
   }
+
+
 `;
 
 export const FigureCredit = styled.figure`

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { coffeeList } from "../../../APICoffee/coffeList";
 import { CardCoffeeCheckout } from "../../../components/CardCoffee/CardCoffeeCheckout";
 import {
@@ -27,7 +27,7 @@ export const CoffeeSelected = () => {
   const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE)
 
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <MainCoffeeSelected>
       <ArticleTitle>
@@ -55,7 +55,7 @@ export const CoffeeSelected = () => {
             <p>R$ {formattedCartTotal}</p>
           </ArticleTotal>
         </SectionTotalPrice>
-        <SectionButtonConfirmation disabled={cartQuantity<= 0} onClick={() => navigate("/confirmed")}>
+        <SectionButtonConfirmation disabled={cartQuantity<= 0} type="submit" /* onClick={() => navigate("/confirmed")}*/>
           <p>Confirmar Pedido</p>
         </SectionButtonConfirmation>
       </SectionCoffeesSlected>

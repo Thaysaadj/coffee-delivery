@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import locale from "../../../assets/svg/locale.svg";
 import { InfoPaymant } from "../InfoPaymant";
 import {
@@ -19,7 +20,11 @@ import {
   SectionLocaleAddressInput,
   SectionRegisterAddress,
 } from "./styles";
+
 export const Register = () => {
+
+  const {register} = useFormContext()
+
   return (
     <MainRegisterCheckout>
       <ArticleRegisterTtile>
@@ -38,12 +43,12 @@ export const Register = () => {
         <form>
           <SectionLocaleAddressInput>
             <SectionCEPAndRoad>
-              <InputCEP placeholder="CEP" />
+              <InputCEP placeholder="CEP" type="number" {...register('cep')}/>
 
               <InputRoad placeholder="Rua" />
             </SectionCEPAndRoad>
             <SectionCompletAddress>
-              <InputNumber placeholder="Número" />
+              <InputNumber placeholder="Número" type="number"/>
 
               <InputComplement placeholder="Complemento" />
             </SectionCompletAddress>
