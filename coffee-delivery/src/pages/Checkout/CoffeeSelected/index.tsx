@@ -14,6 +14,7 @@ import {
 } from "./styles";
 import { useCart } from "../../../hooks/useCart";
 import { formatMoney } from "../../../utils/formatMoney";
+// import { useNavigate } from "react-router-dom";
 
 const DELIVERY_PRICE = 3.5
 
@@ -26,8 +27,8 @@ export const CoffeeSelected = () => {
   const formattedCartTotal = formatMoney(cartTotal)
   const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE)
 
+// const navigate = useNavigate()
 
-  // const navigate = useNavigate();
   return (
     <MainCoffeeSelected>
       <ArticleTitle>
@@ -55,7 +56,7 @@ export const CoffeeSelected = () => {
             <p>R$ {formattedCartTotal}</p>
           </ArticleTotal>
         </SectionTotalPrice>
-        <SectionButtonConfirmation disabled={cartQuantity<= 0} type="submit" /* onClick={() => navigate("/confirmed")}*/>
+        <SectionButtonConfirmation disabled={cartQuantity<= 0} type="submit" /*onClick={() => navigate("/confirmed")}*/>
           <p>Confirmar Pedido</p>
         </SectionButtonConfirmation>
       </SectionCoffeesSlected>

@@ -47,4 +47,9 @@ export const PaymentMethodOptionsContanier = styled.div`
   align-items: center;
   justify-items: center;
   align-content: center;
+
+  > p {
+    color: ${porps => porps.theme['--base-error']};
+    grid-column:span 3 ;
+  }
 `;

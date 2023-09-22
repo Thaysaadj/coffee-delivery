@@ -9,8 +9,28 @@ import {
 } from "./styles";
 import dolar from "../../../assets/svg/cifrao-purple.svg";
 import { PaymentMethodInput } from "./PaymentMethodInput";
+import { Bank, CreditCard, Money } from "phosphor-react";
+import { useFormContext } from "react-hook-form";
+
+export const paymentMethods = {
+  credit: {
+    label: 'Cartão de Crádito',
+    icon: <CreditCard size={16}/>
+  },
+  debit: {
+    label: 'Cartão de Débito',
+    icon: <Bank size={16}/>
+  },
+  money: {
+    label: 'Dinheiro',
+    icon: <Money size={16}/>
+  }
+}
 
 export const InfoPaymant = () => {
+  const {register, formState: {errors} } = useFormContext() 
+
+  const paymentMethodError =  errors?.paymentMethods?.message as unknown as string
   return (
     <MainInfoPaymant>
       <SectionInfoPaymant>
@@ -27,9 +47,17 @@ export const InfoPaymant = () => {
         </ArtcileInfoTypePaymant>
       </SectionInfoPaymant>
       <PaymentMethodOptionsContanier>
-        <PaymentMethodInput/>
-        <PaymentMethodInput/>
-        <PaymentMethodInput/>
+        {Object.entries(paymentMethods).map(([key, {label, icon}]) => (
+          <PaymentMethodInput
+            key={label}
+            id={key}
+            icon={icon}
+            label={label}
+            value={key}
+            {...register('paymentMethods')}
+          />
+        ))}
+        {paymentMethodError && <p>{paymentMethodError}</p>}
       </PaymentMethodOptionsContanier>
     </MainInfoPaymant>
   );

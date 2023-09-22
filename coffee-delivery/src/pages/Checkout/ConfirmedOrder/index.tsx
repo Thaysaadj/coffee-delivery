@@ -15,8 +15,13 @@ import {
   SectionInformationConfirmationOrder,
   SectionItemsConfirmedOrder,
 } from "./styles";
+import { useLocation } from "react-router-dom";
 
 export const ConfirmedOrder = () => {
+
+  const {state} = useLocation()
+  console.log(state)
+
   return (
     <MainConfirmedOrder>
       <SectionItemsConfirmedOrder>
