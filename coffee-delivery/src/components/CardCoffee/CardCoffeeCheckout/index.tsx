@@ -18,22 +18,21 @@ interface CoffeeCartCardProps {
 }
 
 export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
-  const { changeCartItemQuantity, removeCartItem } = useCart();
+  const {changeCartItemQuantity, removeCartItem } = useCart();
 
   function handleIncrease() {
-    changeCartItemQuantity(coffee.id, 'increase');
+    changeCartItemQuantity(coffee.id, 'increase')
   }
-
   function handleDecrease() {
-    changeCartItemQuantity(coffee.id, 'decrease');
+    changeCartItemQuantity(coffee.id, 'decrease')
   }
 
+  const coffeeTotal = coffee.value * coffee.quantity
+  const formattedPrice = formatMoney(coffeeTotal)
+  
   function handleRemove() {
     removeCartItem(coffee.id);
   }
-
-  const formatPrice = (price: number) => formatMoney(price)
-  const coffeeTotal = coffee.value * coffee.quantity;
 
 
   return (
@@ -45,12 +44,12 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
         <SectionDetailsQuantityCoffeeCheckout>
           <p>{coffee.name}</p>
           <SectionQuantity>
-            <QuantityInput
+            {<QuantityInput
               size="small"
               onIncrease={handleIncrease}
               onDecrease={handleDecrease}
               quantity={coffee.quantity}
-            />
+            /> }
             <ButtonRemove onClick={handleRemove}>
               <Trash />
               <p>Remover</p>
@@ -59,7 +58,7 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
         </SectionDetailsQuantityCoffeeCheckout>
       </SectionImgAndDetails>
       <ArticlePriceCoffeeCheckout>
-        <p>R${formatPrice(coffeeTotal)}</p>
+        <p>R${formattedPrice}</p>
       </ArticlePriceCoffeeCheckout>
     </MainCardCoffeeCheckout>
   );

@@ -57,7 +57,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     });
     setCartItems(newCart);
   }
-
+//função que aumenta e diminue item no carrinho 
   function changeCartItemQuantity(
     cartItemId: number,
     type: 'increase' | 'decrease'

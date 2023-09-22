@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const MainRegisterCheckout = styled.main`
   padding: 0 160px;
   display: flex;
@@ -59,70 +60,27 @@ export const DetailsLocaleAddress = styled.article`
   }
 `;
 
-const BaseInputs = styled.input`
-  border-radius: 4px;
-  border: 1px solid ${(props) => props.theme["--base-button"]};
-  background: ${(props) => props.theme["--base-input"]};
 
-  ::placeholder {
-    color:${(props) => props.theme["--base-label"]};
+export const AddressFormContainer = styled.form`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 12.5rem 17.25rem 3.75rem;
+  column-gap: 0.75rem ;
+  row-gap: 1rem ;
+  grid-auto-flow: dense ;
 
-    /* Text/Regular S */
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%; /* 18.2px */
+  .cep {
+    grid-column: span 3;
+    max-width: 12.5rem ;
+  }
+
+  .street {
+    grid-column: span 3;
+  }
+
+  .complement{
+    grid-column: span 2;
+
   }
 `;
 
-export const SectionLocaleAddressInput = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-export const SectionCEPAndRoad = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-export const InputCEP = styled(BaseInputs)`
-  width: 200px;
-  padding: 12px;
-`;
-export const InputRoad = styled(BaseInputs)`
-  width: 560px;
-  padding: 12px;
-`;
-export const SectionCompletAddress = styled.section`
-  display: flex;
-  column-gap: 12px;
-  /* margin-left: 46px; */
-`;
-export const InputNumber = styled(BaseInputs)`
-  width: 200px;
-  padding: 12px;
-`;
-export const InputComplement = styled(BaseInputs)`
-  width: 348px;
-  padding: 12px;
-`;
-
-export const SectionFinalComplement = styled.section`
-  display: flex;
-  column-gap: 12px;
-`;
-export const InputNeighborhood = styled(BaseInputs)`
-  width: 200px;
-  padding: 12px;
-`;
-export const InputCity = styled(BaseInputs)`
-  width: 252px;
-  padding: 12px;
-`;
-export const InputState = styled(BaseInputs)`
-  width: 60px;
-  padding: 12px;
-`;

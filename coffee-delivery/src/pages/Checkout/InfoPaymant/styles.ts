@@ -38,92 +38,13 @@ export const ArticleSubtitlePaymant = styled.article`
   flex-direction: column;
   justify-content: flex-start;
 `;
-export const SectionTypeOfPaymant = styled.section`
-  display: flex;
-  gap: 12px;
 
-  :hover {
-    background: ${(props) => props.theme["--purple-light"]};
-  }
-
-`;
-const BaseTypesOfPaymant = styled.article`
-  padding: 16px;
-  display: flex;
+export const PaymentMethodOptionsContanier = styled.div`
+  width: 100% ;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border-radius: 6px;
-  background: ${(props) => props.theme["--base-button"]};
-
-
-`;
-
-export const ArticleCreditCard = styled(BaseTypesOfPaymant)`
-
-
-  p {
-    color: ${props => props.theme['--base-text']};
-
-    /* Components/Button S */
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%; /* 19.2px */
-    text-transform: uppercase;
-  }
-
-
-`;
-
-export const FigureCredit = styled.figure`
-  width: 16px;
-  height: 16px;
-
-  img {
-    width: 100%;
-  }
-`;
-export const ArticleDebitCard = styled(BaseTypesOfPaymant)`
-  p {
-    color: var(--base-text, #574f4d);
-
-    /* Components/Button S */
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%; /* 19.2px */
-    text-transform: uppercase;
-  }
-`;
-export const FigureDebit = styled.figure`
-  width: 16px;
-  height: 16px;
-
-  img {
-    width: 100%;
-  }
-`;
-export const ArticleMoney = styled(BaseTypesOfPaymant)`
-  p {
-    color: var(--base-text, #574f4d);
-
-    /* Components/Button S */
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%; /* 19.2px */
-    text-transform: uppercase;
-  }
-`;
-export const FigureMoney = styled.figure`
-  width: 16px;
-  height: 16px;
-
-  img {
-    width: 100%;
-  }
+  justify-items: center;
+  align-content: center;
 `;

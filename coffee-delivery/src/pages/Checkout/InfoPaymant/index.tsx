@@ -1,21 +1,14 @@
 import {
   ArtcileInfoTypePaymant,
-  ArticleCreditCard,
-  ArticleDebitCard,
-  ArticleMoney,
   ArticleSubtitlePaymant,
-  FigureCredit,
-  FigureDebit,
   FigureDolar,
-  FigureMoney,
   MainInfoPaymant,
+  PaymentMethodOptionsContanier,
   SectionInfoPaymant,
-  SectionTypeOfPaymant,
+  
 } from "./styles";
 import dolar from "../../../assets/svg/cifrao-purple.svg";
-import credit from "../../../assets/svg/credit.svg";
-import debit from "../../../assets/svg/debit.svg";
-import money from "../../../assets/svg/money.svg";
+import { PaymentMethodInput } from "./PaymentMethodInput";
 
 export const InfoPaymant = () => {
   return (
@@ -32,27 +25,12 @@ export const InfoPaymant = () => {
             </p>
           </ArticleSubtitlePaymant>
         </ArtcileInfoTypePaymant>
-        <SectionTypeOfPaymant>
-          <ArticleCreditCard>
-            <FigureCredit>
-              <img src={credit} alt="" />
-            </FigureCredit>
-            <p>CARTÃO DE CRÉDITO</p>
-          </ArticleCreditCard>
-          <ArticleDebitCard>
-            <FigureDebit>
-              <img src={debit} alt="" />
-            </FigureDebit>
-            <p>CARTÃO DE CRÉDITO</p>
-          </ArticleDebitCard>
-          <ArticleMoney>
-            <FigureMoney>
-              <img src={money} alt="" />
-            </FigureMoney>
-            <p>CARTÃO DE CRÉDITO</p>
-          </ArticleMoney>
-        </SectionTypeOfPaymant>
       </SectionInfoPaymant>
+      <PaymentMethodOptionsContanier>
+        <PaymentMethodInput/>
+        <PaymentMethodInput/>
+        <PaymentMethodInput/>
+      </PaymentMethodOptionsContanier>
     </MainInfoPaymant>
   );
 };
