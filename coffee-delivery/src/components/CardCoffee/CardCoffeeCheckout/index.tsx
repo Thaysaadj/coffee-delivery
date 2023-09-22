@@ -12,28 +12,31 @@ import { Trash } from "phosphor-react";
 import { QuantityInput } from "../../QuantityInput";
 import { useCart } from "../../../hooks/useCart";
 import { formatMoney } from "../../../utils/formatMoney";
-
+import { useState, useEffect } from "react";
 interface CoffeeCartCardProps {
   coffee: CartItem;
 }
 
 export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
-  const {changeCartItemQuantity, removeCartItem } = useCart();
+  const { changeCartItemQuantity, removeCartItem } = useCart();
+  const [coffeeTotal, setCoffeeTotal] = useState(
+    coffee.value * coffee.quantity
+  );
 
   function handleIncrease() {
-    changeCartItemQuantity(coffee.id, 'increase')
+    changeCartItemQuantity(coffee.id, "increase");
   }
   function handleDecrease() {
-    changeCartItemQuantity(coffee.id, 'decrease')
+    changeCartItemQuantity(coffee.id, "decrease");
   }
 
-  const coffeeTotal = coffee.value * coffee.quantity
-  const formattedPrice = formatMoney(coffeeTotal)
-  
   function handleRemove() {
     removeCartItem(coffee.id);
   }
 
+  useEffect (() => {
+    setCoffeeTotal(coffee.value * coffee.quantity);
+  }, [coffee])
 
   return (
     <MainCardCoffeeCheckout>
@@ -44,12 +47,14 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
         <SectionDetailsQuantityCoffeeCheckout>
           <p>{coffee.name}</p>
           <SectionQuantity>
-            {<QuantityInput
-              size="small"
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-              quantity={coffee.quantity}
-            /> }
+            {
+              <QuantityInput
+                size="small"
+                onIncrease={handleIncrease}
+                onDecrease={handleDecrease}
+                quantity={coffee.quantity}
+              />
+            }
             <ButtonRemove onClick={handleRemove}>
               <Trash />
               <p>Remover</p>
@@ -58,7 +63,7 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
         </SectionDetailsQuantityCoffeeCheckout>
       </SectionImgAndDetails>
       <ArticlePriceCoffeeCheckout>
-        <p>R${formattedPrice}</p>
+        <p>R${formatMoney(coffeeTotal)}</p>
       </ArticlePriceCoffeeCheckout>
     </MainCardCoffeeCheckout>
   );

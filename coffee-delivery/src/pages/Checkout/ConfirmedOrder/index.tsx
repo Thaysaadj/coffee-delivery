@@ -16,11 +16,16 @@ import {
   SectionItemsConfirmedOrder,
 } from "./styles";
 import { useLocation } from "react-router-dom";
+import { OrderData } from "..";
+
+interface LocationType {
+  state : OrderData
+}
 
 export const ConfirmedOrder = () => {
 
-  const {state} = useLocation()
-  console.log(state)
+  const {state} = useLocation() as unknown as LocationType
+  console.log("aquii",state)
 
   return (
     <MainConfirmedOrder>

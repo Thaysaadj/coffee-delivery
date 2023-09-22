@@ -55,6 +55,7 @@ export const InfoPaymant = () => {
             label={label}
             value={key}
             {...register('paymentMethods')}
+            
           />
         ))}
         {paymentMethodError && <p>{paymentMethodError}</p>}

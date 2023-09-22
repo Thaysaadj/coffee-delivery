@@ -15,19 +15,27 @@ import {
 import { useCart } from "../../../hooks/useCart";
 import { formatMoney } from "../../../utils/formatMoney";
 // import { useNavigate } from "react-router-dom";
+// import React from "react";
 
-const DELIVERY_PRICE = 3.5
+const DELIVERY_PRICE = 3.5;
 
 export const CoffeeSelected = () => {
   const { cartItems, cartItemsTotal, cartQuantity } = useCart();
 
-  const cartTotal = DELIVERY_PRICE + cartItemsTotal
+  const cartTotal = DELIVERY_PRICE + cartItemsTotal;
 
-  const formattedItemsTotal = formatMoney(cartItemsTotal)
-  const formattedCartTotal = formatMoney(cartTotal)
-  const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE)
+  const formattedItemsTotal = formatMoney(cartItemsTotal);
+  const formattedCartTotal = formatMoney(cartTotal);
+  const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE);
 
-// const navigate = useNavigate()
+  // const navigate = useNavigate();
+
+  // function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   navigate("/confirmed");
+  
+  // }
 
   return (
     <MainCoffeeSelected>
@@ -37,10 +45,7 @@ export const CoffeeSelected = () => {
 
       <SectionCoffeesSlected>
         {cartItems.map((item) => (
-          <CardCoffeeCheckout 
-          key={item.id}
-          coffee={item}
-          />
+          <CardCoffeeCheckout key={item.id} coffee={item} />
         ))}
         <SectionTotalPrice>
           <ArticleTotalitens>
@@ -56,7 +61,11 @@ export const CoffeeSelected = () => {
             <p>R$ {formattedCartTotal}</p>
           </ArticleTotal>
         </SectionTotalPrice>
-        <SectionButtonConfirmation disabled={cartQuantity<= 0} type="submit" /*onClick={() => navigate("/confirmed")}*/>
+        <SectionButtonConfirmation
+          disabled={cartQuantity <= 0}
+          type="submit"
+          // onClick={handleClick}
+        >
           <p>Confirmar Pedido</p>
         </SectionButtonConfirmation>
       </SectionCoffeesSlected>
