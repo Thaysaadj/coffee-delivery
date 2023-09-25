@@ -7,6 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box ;
     outline:none ;
   }
+
+  button{
+    cursor: pointer;
+  }
+
+  a{
+    text-decoration: none ;
+  }
   
   body{
     background-color: ${(props) => props.theme['background-100']} ;
@@ -18,6 +26,19 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif ;
     font-weight: 400 ;
     font-size: 1rem ;
+  }
+
+  ::-webkit-scrollbar{
+    width: 0.4rem;
+  }
+
+  ::-webkit-scrollbar-track{
+    background:${porps => porps.theme['--base-button']} ;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    border: 2rem;
+    background: ${porps => porps.theme['--purple']} ;
   }
 
 `;

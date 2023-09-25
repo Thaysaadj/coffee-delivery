@@ -5,11 +5,12 @@ import { MainContainerCheckout } from "./styles";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 enum PaymentMethods {
   credit = "credit",
-  debid = "debit",
+  debit = "debit",
   money = "money",
 }
 
@@ -39,10 +40,14 @@ export const Checkout = () => {
 
   const { handleSubmit } = confirmOrderForm;
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {cleanCard} = useCart()
 
   function handleConfirmOrder(data: ConfirmOrderFormData) {
-    // navigate("/confirmed");
+    navigate("/confirmed", {
+      state: data
+    });
+    cleanCard()
     console.log("ola", data);
   }
 

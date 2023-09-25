@@ -15,8 +15,10 @@ import {
   SectionInformationConfirmationOrder,
   SectionItemsConfirmedOrder,
 } from "./styles";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { OrderData } from "..";
+import { paymentMethods } from "../InfoPaymant";
+import {useEffect} from 'react'
 
 interface LocationType {
   state : OrderData
@@ -25,7 +27,17 @@ interface LocationType {
 export const ConfirmedOrder = () => {
 
   const {state} = useLocation() as unknown as LocationType
-  console.log("aquii",state)
+  console.log("aquii", state)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!state){
+      navigate("/")
+    }
+  }, [])
+
+  if(!state) return <></>
 
   return (
     <MainConfirmedOrder>
@@ -40,8 +52,9 @@ export const ConfirmedOrder = () => {
               <img src={locale} alt="" />
             </FigureLocale>
             <p>
-              Entrega em <strong>Rua João Daniel Martinelli</strong>, 102
-              Farrapos - Porto Alegre, RS
+              Entrega em <strong>{state.street}, {state.number}</strong>
+              <br/>
+              {state.district} - {state.city}, {state.uf}
             </p>
           </ArticleDeliveryPlaceConfirmationOrder>
           <ArticleTimerConfirmationOrder>
@@ -57,7 +70,7 @@ export const ConfirmedOrder = () => {
               <img src={cifrao} alt="" />
             </FigureFormOfPayment>
             <p>
-              Pagamento na entrega <strong>Cartão de Crédito</strong>
+              Pagamento na entrega <strong>{paymentMethods[state.paymentMethod].label}</strong>
             </p>
           </ArticleFormOfPaymentConfirmationOrder>
         </SectionInformationConfirmationOrder>

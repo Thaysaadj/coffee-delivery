@@ -64,7 +64,6 @@ export const CoffeeSelected = () => {
         <SectionButtonConfirmation
           disabled={cartQuantity <= 0}
           type="submit"
-          // onClick={handleClick}
         >
           <p>Confirmar Pedido</p>
         </SectionButtonConfirmation>
