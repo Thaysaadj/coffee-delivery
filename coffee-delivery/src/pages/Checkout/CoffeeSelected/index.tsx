@@ -28,15 +28,6 @@ export const CoffeeSelected = () => {
   const formattedCartTotal = formatMoney(cartTotal);
   const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE);
 
-  // const navigate = useNavigate();
-
-  // function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   navigate("/confirmed");
-  
-  // }
-
   return (
     <MainCoffeeSelected>
       <ArticleTitle>

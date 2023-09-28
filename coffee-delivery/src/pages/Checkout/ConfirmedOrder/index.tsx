@@ -27,7 +27,6 @@ interface LocationType {
 export const ConfirmedOrder = () => {
 
   const {state} = useLocation() as unknown as LocationType
-  console.log("aquii", state)
 
   const navigate = useNavigate()
 

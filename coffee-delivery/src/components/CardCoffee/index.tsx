@@ -68,7 +68,7 @@ export const CardCoffee = ({ coffee }: CoffeeProps) => {
       </ArticleDescriptionCoffee>
       <SectionAcsiotionCoffee>
         <ArticlePriceCoffee>
-          <p>R$ {formatPrice}</p>
+          <p><span>R$</span> {formatPrice}</p>
         </ArticlePriceCoffee>
         <ArticleQuantityItem>
           <QuantityInput

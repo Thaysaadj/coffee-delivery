@@ -36,19 +36,21 @@ type ConfirmOrderFormData = OrderData;
 export const Checkout = () => {
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
+    defaultValues: {
+      paymentMethod: undefined
+    }
   });
 
   const { handleSubmit } = confirmOrderForm;
 
   const navigate = useNavigate();
-  const {cleanCard} = useCart()
+  const { cleanCart } = useCart()
 
   function handleConfirmOrder(data: ConfirmOrderFormData) {
     navigate("/confirmed", {
-      state: data
+      state: data,
     });
-    cleanCard()
-    console.log("ola", data);
+    cleanCart();
   }
 
   return (

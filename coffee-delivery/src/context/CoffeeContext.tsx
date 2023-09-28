@@ -16,7 +16,7 @@ interface CartContextType {
     type: "increase" | "decrease"
   ) => void;
   removeCartItem: (cartItemId: number) => void
-  cleanCard: () => void
+  cleanCart: () => void
 }
 
 interface CartContextProviderProps {
@@ -90,7 +90,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart)
   }
 
-  function cleanCard () {
+  function cleanCart () {
     setCartItems([])
   }
 
@@ -107,7 +107,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addCoffeeToCart,
         changeCartItemQuantity,
         removeCartItem,
-        cleanCard
+        cleanCart
       }}
     >
       {children}

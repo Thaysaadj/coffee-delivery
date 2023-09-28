@@ -17,10 +17,10 @@ export const SectionHeader = styled.section`
   justify-content: space-between;
   padding: 32px 160px;
 
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 426px) {
     padding: 0.625rem;
   }
-  @media (min-width: 425px) and (max-width: 768px) {
+  @media (min-width: 426px) and (max-width: 768px) {
     padding: 1.25rem;
   }
 `;

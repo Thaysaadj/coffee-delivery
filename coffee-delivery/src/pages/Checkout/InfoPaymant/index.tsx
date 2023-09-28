@@ -5,7 +5,7 @@ import {
   MainInfoPaymant,
   PaymentMethodOptionsContanier,
   SectionInfoPaymant,
-  
+
 } from "./styles";
 import dolar from "../../../assets/svg/cifrao-purple.svg";
 import { PaymentMethodInput } from "./PaymentMethodInput";
@@ -14,23 +14,27 @@ import { useFormContext } from "react-hook-form";
 
 export const paymentMethods = {
   credit: {
-    label: 'Cartão de Crádito',
-    icon: <CreditCard size={16}/>
+    label: "Cartão de crédito",
+    icon: <CreditCard size={16} />,
   },
   debit: {
-    label: 'Cartão de Débito',
-    icon: <Bank size={16}/>
+    label: "Cartão de débito",
+    icon: <Bank size={16} />,
   },
   money: {
-    label: 'Dinheiro',
-    icon: <Money size={16}/>
-  }
-}
+    label: "Dinheiro",
+    icon: <Money size={16} />,
+  },
+};
 
-export const InfoPaymant = () => {
-  const {register, formState: {errors} } = useFormContext() 
+export function InfoPaymant() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
-  const paymentMethodError =  errors?.paymentMethods?.message as unknown as string
+  const paymentMethodError = errors?.paymentMethod
+    ?.message as unknown as string;
   return (
     <MainInfoPaymant>
       <SectionInfoPaymant>
@@ -47,19 +51,19 @@ export const InfoPaymant = () => {
         </ArtcileInfoTypePaymant>
       </SectionInfoPaymant>
       <PaymentMethodOptionsContanier>
-        {Object.entries(paymentMethods).map(([key, {label, icon}]) => (
+        {Object.entries(paymentMethods).map(([key, { label, icon }]) => (
           <PaymentMethodInput
             key={label}
             id={key}
             icon={icon}
             label={label}
             value={key}
-            {...register('paymentMethods')}
-            
+            {...register("paymentMethod")}
           />
         ))}
+
         {paymentMethodError && <p>{paymentMethodError}</p>}
       </PaymentMethodOptionsContanier>
     </MainInfoPaymant>
   );
-};
+}
