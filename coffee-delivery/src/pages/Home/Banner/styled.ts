@@ -12,23 +12,15 @@ export const SectionBanner = styled.section`
   row-gap: 66px;
   padding: 94px 160px 72px 160px;
 
-
-  @media (min-width: 320px) and (max-width: 500px) {
+  @media (max-width: 1024px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 0 30px;
+    padding: 3rem 30px;
   }
-
-  @media (min-width: 500px) and (max-width: 500px) {
-    /* padding: 1.25rem; */
-  }
- 
 `;
-
-// export const ArticleBannerTitleAndSubTitleAndImg = styled.article``;
 
 export const HeaderBannerTitle = styled.header`
   width: 588px;
@@ -43,12 +35,11 @@ export const HeaderBannerTitle = styled.header`
     line-height: 130%;
   }
 
-  @media (min-width: 320px) and (max-width: 500px) {
-    width:100% ;
-    height:auto;
-    font-size:1.5rem ;
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto;
+    font-size: 1.5rem;
   }
-
 `;
 
 export const ArticleBannerSubtitle = styled.article`
@@ -65,26 +56,27 @@ export const ArticleBannerSubtitle = styled.article`
     line-height: 130%;
   }
 
-  @media (min-width: 320px) and (max-width: 500px) {
-    width:100%;
+  @media (max-width: 480px) {
+    width: 100%;
     height: auto;
-  }
-
-  @media (min-width: 500px) and (max-width: 500px) {
   }
 `;
 
 export const ArticleImgBanner = styled.article`
-  @media (min-width: 320px) and (max-width:500px) {
+  @media (min-width: 320px) and (max-width: 500px) {
     width: 300px;
     height: 300px;
 
-    img{
+    img {
       width: 100%;
     }
   }
 
-  @media (min-width: 500px) and (max-width: 500px) {
+  @media (min-width: 1200px) {
+    width: 420px;
+    img {
+      width: 100%;
+    }
   }
 `;
 
@@ -98,36 +90,34 @@ export const ArticleBannerBenefits = styled.article`
   height: 84px;
   flex-shrink: 0;
 
-  @media (min-width: 320px) and (max-width: 500px) {
-    display:flex ;
+  @media (max-width: 480px) {
+    display: flex;
     flex-direction: column;
-    margin-top: -60px ;
+    margin-top: -60px;
     width: 100%;
   }
 
-  @media (min-width:426px) and (max-width: 500px) {
-    /* padding: 1.25rem; */
+  @media (min-width: 768px) {
+    column-gap: 0;
   }
 `;
-
-
 
 export const BaseBenefits = styled.figure`
   display: flex;
   align-items: center;
-  justify-content:center ;
+  justify-content: center;
   gap: 12px;
 
-    p {
-    color: ${props => props.theme['--base-text']};
-    width:250px;
+  p {
+    color: ${(props) => props.theme["--base-text"]};
+    width: 250px;
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%; /* 20.8px */
   }
-`
+`;
 
 export const BenefitsContainerIcon = styled.div`
   display: flex;
@@ -135,30 +125,26 @@ export const BenefitsContainerIcon = styled.div`
   height: 32px;
   padding: 8px;
   border-radius: 50%;
-  background: red ;
+  background: red;
 `;
 
 export const BenefitsCart = styled(BaseBenefits)`
-  .colorIconCard{
-    background-color: ${props => props.theme['--yellow-dark']} ;
+  .colorIconCard {
+    background-color: ${(props) => props.theme["--yellow-dark"]};
   }
-
 `;
 export const BenefitsBox = styled(BaseBenefits)`
-  .colorIconBox{
-    background-color: ${props => props.theme['--base-text']} ;
-
+  .colorIconBox {
+    background-color: ${(props) => props.theme["--base-text"]};
   }
 `;
 export const BenefitsTimer = styled(BaseBenefits)`
-  .colorIconTimer{
-    background-color: ${props => props.theme['--yellow']} ;
-
+  .colorIconTimer {
+    background-color: ${(props) => props.theme["--yellow"]};
   }
 `;
 export const BenefitsCoffee = styled(BaseBenefits)`
-  .colorIconMiniCoffee{
-    background-color: ${props => props.theme['--purple']} ;
-
+  .colorIconMiniCoffee {
+    background-color: ${(props) => props.theme["--purple"]};
   }
 `;

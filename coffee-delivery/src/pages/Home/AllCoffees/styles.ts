@@ -9,15 +9,25 @@ export const MainAllCoffes = styled.main`
   align-items: center;
   padding: 54px 160px;
 
-  @media (min-width: 320px) and (max-width: 426px) {
+  @media  (max-width: 480px) {
     grid-template-columns: 1fr;
     padding: 0 ;
     margin-top: 50px ;
-
   }
-  @media (min-width: 426px) and (max-width: 500px) {
+
+  @media (min-width: 768px){
     grid-template-columns: 1fr 1fr;
-    padding: 0 ;
+    padding: 55px;
+  }
+
+  @media (min-width: 1024px){
+    grid-template-columns: 1fr 1fr;
+    padding: 70px 185px;
+  }
+
+  @media (min-width:1200px){
+    grid-template-columns: 1fr 1fr 1fr;
+
   }
 `;
 
@@ -35,11 +45,18 @@ export const AllCoffeeTitle = styled.article`
     line-height: 130%; /* 41.6px */
   }
 
-  @media (min-width: 320px) and (max-width: 426px) {
+  @media (min-width: 320px){
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  @media (max-width: 1024px) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15rem ;
+    margin-top: 20rem ;
     padding:0;
   }
  

@@ -4,10 +4,17 @@ export const MainHeader = styled.main`
   width: 100%;
   height: 104px;
   position: sticky;
-  top:0;
-  left:0 ;
-  z-index: 5 ;
-  background: ${props => props.theme['--base-background']}
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  background: ${(props) => props.theme["--base-background"]};
+
+  @media (max-width: 480px) {
+    height: 5rem;
+  }
 
 `;
 
@@ -16,12 +23,15 @@ export const SectionHeader = styled.section`
   align-items: center;
   justify-content: space-between;
   padding: 32px 160px;
+  width: 100%;
 
-  @media (min-width: 320px) and (max-width: 426px) {
-    padding: 0.625rem;
+
+  @media (max-width: 480px) {
+    padding: 0.7rem;
   }
-  @media (min-width: 426px) and (max-width: 768px) {
-    padding: 1.25rem;
+
+  @media (min-width: 768px){
+    padding: 32px;
   }
 `;
 export const LogoHeader = styled.figure`
@@ -55,25 +65,22 @@ export const FigureLocale = styled(BaseFigure)`
 
 export const FigureCart = styled(BaseFigure)`
   background-color: ${(props) => props.theme["--yellow-light"]};
-  position:relative;
+  position: relative;
 
-  span{
-    position:absolute;
-    width:1.25rem;
-    height:1.25rem;
-    border-radius: 50% ;
-    top: calc(-1.25rem /2);
-    right: calc(-1.25rem /2);
-    color:${props => props.theme['--white']} ;
-    background:${props => props.theme['--yellow-dark']} ;
+  span {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+    color: ${(props) => props.theme["--white"]};
+    background: ${(props) => props.theme["--yellow-dark"]};
 
-
-    display:flex ;
-    align-items:center ;
-    justify-content:center;
-    font-size: 0.75rem ;
-    font-weight: 700 ;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
   }
-
 `;
