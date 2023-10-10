@@ -5,7 +5,18 @@ export const MainConfirmedOrder = styled.main`
   display: flex;
   align-items: center;
   justify-content: stretch;
-  gap:6.75rem ;
+  gap: 6.75rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  @media (min-width: 2560px){
+    justify-content:center;
+  }
 `;
 
 export const SectionItemsConfirmedOrder = styled.section`
@@ -14,6 +25,12 @@ export const SectionItemsConfirmedOrder = styled.section`
   align-items: stretch;
   justify-content: center;
   gap: 2.5rem;
+
+  @media (max-width: 480px) {
+    width: 240px;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const ArticleTitleConfirmedOrder = styled.article`
@@ -38,6 +55,10 @@ export const ArticleTitleConfirmedOrder = styled.article`
     font-weight: 400;
     line-height: 130%; /* 26px */
   }
+
+  @media (max-width: 480px) {
+    width: auto;
+  }
 `;
 
 export const SectionInformationConfirmationOrder = styled.section`
@@ -46,18 +67,25 @@ export const SectionInformationConfirmationOrder = styled.section`
   padding: 2.5rem;
   flex-direction: column;
   align-items: flex-start;
-  background-color: ${props => props.theme['--base-background']};
+  background-color: ${(props) => props.theme["--base-background"]};
   gap: 2rem;
   border-radius: 6px 36px 6px 36px;
   position: relative;
 
-  &::before{
+  &::before {
     content: "";
-    position:absolute;
-    inset: -1px ;
+    position: absolute;
+    inset: -1px;
     z-index: -1;
-    border-radius: 7px 37px 7px 37px ;
-    background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047F8 98.76%) ;
+    border-radius: 7px 37px 7px 37px;
+    background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047f8 98.76%);
+  }
+
+  @media (max-width: 480px) {
+    width: 300px;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -74,14 +102,11 @@ const BaseItensConfirmationOrder = styled.article`
     font-weight: 400;
     line-height: 130%;
   }
-
-`
-
-export const ArticleDeliveryPlaceConfirmationOrder = styled(BaseItensConfirmationOrder)`
-  p{
-    width:19.9375rem ;
-  }
 `;
+
+export const ArticleDeliveryPlaceConfirmationOrder = styled(
+  BaseItensConfirmationOrder
+)``;
 
 export const FigureLocale = styled.figure`
   padding: 8px;
@@ -90,12 +115,10 @@ export const FigureLocale = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  
 `;
 
 export const ArticleTimerConfirmationOrder = styled(BaseItensConfirmationOrder)`
-  p{
+  p {
     width: 8.8125rem;
   }
 `;
@@ -110,10 +133,11 @@ export const FigureTimer = styled.figure`
   gap: 8px;
 `;
 
-export const ArticleFormOfPaymentConfirmationOrder = styled(BaseItensConfirmationOrder)`
-
-  p{
-    width:10.125rem ;
+export const ArticleFormOfPaymentConfirmationOrder = styled(
+  BaseItensConfirmationOrder
+)`
+  p {
+    width: 10.125rem;
   }
 `;
 
@@ -130,4 +154,14 @@ export const FigureFormOfPayment = styled.figure`
 
 export const SectionIlustration = styled.section`
   margin-bottom: -80px;
+ 
+
+  @media (max-width: 480px) {
+    width: 300px;
+    height: 300px;
+
+    img{
+      width: 100%;
+    }
+  }
 `;

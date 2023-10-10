@@ -10,7 +10,9 @@ export const MainCardCoffeeCheckout = styled.main`
   background: ${(props) => props.theme["--base-card"]};
 
   @media (max-width: 480px) {
-    width: auto;
+    width: 250px;
+    flex-direction: column;
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 768px) {
@@ -123,4 +125,8 @@ export const ArticlePriceCoffeeCheckout = styled.article`
   font-style: normal;
   font-weight: 700;
   line-height: 130%; /* 20.8px */
+
+  @media (max-width:480px){
+    margin: 1rem 0 2rem 0;
+  }
 `;

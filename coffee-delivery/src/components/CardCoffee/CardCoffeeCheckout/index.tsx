@@ -23,7 +23,7 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
     coffee.value * coffee.quantity
   );
   
-  const [isMobile, setIsMobile] = useState()
+  
 
   function handleIncrease() {
     changeCartItemQuantity(coffee.id, "increase");
@@ -39,7 +39,7 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
 
   useEffect(() => {
     setCoffeeTotal(coffee.value * coffee.quantity);
-  }, [coffee, mobile]);
+  }, [coffee, ]);
 
   return (
     <MainCardCoffeeCheckout>

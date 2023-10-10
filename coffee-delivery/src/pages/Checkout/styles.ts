@@ -5,15 +5,17 @@ export const MainContainerCheckout = styled.form`
   align-items: flex-start;
   justify-content: flex-start;
 
-  @media  (max-width: 480px) {
+  @media  (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  @media (min-width: 768px){
-    
-  }
+  /* @media (min-width: 768px){
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  } */
 
   @media (min-width: 1024px){
  
@@ -24,6 +26,8 @@ export const MainContainerCheckout = styled.form`
   }
 
   @media (min-width: 2560px){
-  
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

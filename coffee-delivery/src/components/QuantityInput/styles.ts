@@ -11,6 +11,10 @@ export const QuantityInputContainer = styled.div`
   padding: 0.5rem ;
   width:4.5rem;
 
+  @media (max-width: 480px){
+    width: auto;
+  }
+
   input{
 
     text-align:center ;
@@ -29,6 +33,8 @@ export const QuantityInputContainer = styled.div`
   &:focus{
     outline: none ;
   }
+
+
 `
 
 export const IconWrapper = styled.button.attrs({type: "button"})`

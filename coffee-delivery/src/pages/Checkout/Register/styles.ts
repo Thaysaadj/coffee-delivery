@@ -6,14 +6,12 @@ export const MainRegisterCheckout = styled.main`
   flex-direction: column;
   gap: 12px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     padding: 0;
     flex-direction: column;
   }
 
-  @media (min-width: 768px) {
-  }
-
+  
   @media (min-width: 1024px) {
   }
 
@@ -21,6 +19,7 @@ export const MainRegisterCheckout = styled.main`
   }
 
   @media (min-width: 2560px) {
+    
   }
 `;
 export const ArticleRegisterTtile = styled.article`
