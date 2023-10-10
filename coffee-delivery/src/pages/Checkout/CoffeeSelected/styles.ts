@@ -28,10 +28,27 @@ export const SectionCoffeesSlected = styled.section`
   border-radius: 6px 44px;
   background: ${(props) => props.theme["--base-card"]};
 
-  a{
+  a {
     width: 368px;
     height: 46px;
     text-decoration: none;
+  }
+
+  @media (max-width: 480px) {
+    width: 300px;
+    padding: 15px;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 2560px) {
   }
 `;
 
@@ -86,9 +103,7 @@ export const ArticleTotal = styled(BaseTotal)`
 `;
 
 export const SectionButtonConfirmation = styled.button`
-
-
-  width:100% ;
+  width: 100%;
   border-radius: 6px;
   background: var(--brand-yellow, #dbac2c);
   display: flex;
@@ -97,7 +112,7 @@ export const SectionButtonConfirmation = styled.button`
   align-items: center;
   gap: 4px;
   align-self: stretch;
-  border:none;
+  border: none;
   cursor: pointer;
 
   p {
@@ -112,8 +127,7 @@ export const SectionButtonConfirmation = styled.button`
     text-transform: uppercase;
   }
 
-  :focus{
-    border-color : ${props => props.theme['--yellow-dark']}
+  :focus {
+    border-color: ${(props) => props.theme["--yellow-dark"]};
   }
 `;
-

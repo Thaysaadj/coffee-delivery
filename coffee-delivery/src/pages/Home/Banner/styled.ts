@@ -20,6 +20,10 @@ export const SectionBanner = styled.section`
     gap: 20px;
     padding: 3rem 30px;
   }
+
+  @media (min-width: 2560px) {
+    padding: 94px 600px
+  }
 `;
 
 export const HeaderBannerTitle = styled.header`

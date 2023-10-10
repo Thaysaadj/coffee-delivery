@@ -1,11 +1,27 @@
 import styled from "styled-components";
 
-
 export const MainRegisterCheckout = styled.main`
   padding: 0 160px;
   display: flex;
   flex-direction: column;
-  gap:12px;
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 2560px) {
+  }
 `;
 export const ArticleRegisterTtile = styled.article`
   padding: 40px 0 15px 0;
@@ -29,6 +45,22 @@ export const SectionRegisterAddress = styled.section`
   align-self: stretch;
   border-radius: 6px;
   background: ${(porps) => porps.theme["--base-card"]};
+
+  @media (max-width: 480px) {
+    width: 300px;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 2560px) {
+  }
 `;
 export const ArticleInformation = styled.article`
   display: flex;
@@ -60,27 +92,43 @@ export const DetailsLocaleAddress = styled.article`
   }
 `;
 
-
 export const AddressFormContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 3.75rem;
-  column-gap: 0.75rem ;
-  row-gap: 1rem ;
-  grid-auto-flow: dense ;
+  column-gap: 0.75rem;
+  row-gap: 1rem;
+  grid-auto-flow: dense;
 
   .cep {
     grid-column: span 3;
-    max-width: 12.5rem ;
+    max-width: 12.5rem;
   }
 
   .street {
     grid-column: span 3;
   }
 
-  .complement{
+  .complement {
     grid-column: span 2;
+  }
 
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 2560px) {
   }
 `;
-

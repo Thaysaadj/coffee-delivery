@@ -33,6 +33,10 @@ export const SectionHeader = styled.section`
   @media (min-width: 768px){
     padding: 32px;
   }
+
+  @media (min-width: 2560px){
+    padding: 32px 600px;
+  }
 `;
 export const LogoHeader = styled.figure`
   width: 84.952px;

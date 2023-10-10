@@ -8,6 +8,22 @@ export const MainCardCoffeeCheckout = styled.main`
   padding: 8px 4px;
   justify-content: space-between;
   background: ${(props) => props.theme["--base-card"]};
+
+  @media (max-width: 480px) {
+    width: auto;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1200px) {
+  }
+
+  @media (min-width: 2560px) {
+  }
 `;
 export const SectionImgAndDetails = styled.section`
   display: flex;
@@ -84,7 +100,7 @@ export const ButtonRemove = styled.button`
   border-radius: 6px;
   background: ${(props) => props.theme["--base-button"]};
   border: none;
-  color: ${props => props.theme['--purple']} ;
+  color: ${(props) => props.theme["--purple"]};
 
   p {
     color: ${(props) => props.theme["--base-text"]};

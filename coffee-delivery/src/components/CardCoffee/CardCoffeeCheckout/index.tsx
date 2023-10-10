@@ -22,6 +22,8 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
   const [coffeeTotal, setCoffeeTotal] = useState(
     coffee.value * coffee.quantity
   );
+  
+  const [isMobile, setIsMobile] = useState()
 
   function handleIncrease() {
     changeCartItemQuantity(coffee.id, "increase");
@@ -33,10 +35,11 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
   function handleRemove() {
     removeCartItem(coffee.id);
   }
+  const mobile = window.innerWidth <= 768;
 
-  useEffect (() => {
+  useEffect(() => {
     setCoffeeTotal(coffee.value * coffee.quantity);
-  }, [coffee])
+  }, [coffee, mobile]);
 
   return (
     <MainCardCoffeeCheckout>
@@ -55,10 +58,16 @@ export const CardCoffeeCheckout = ({ coffee }: CoffeeCartCardProps) => {
                 quantity={coffee.quantity}
               />
             }
-            <ButtonRemove onClick={handleRemove}>
-              <Trash />
-              <p>Remover</p>
-            </ButtonRemove>
+            {mobile ? (
+              <ButtonRemove onClick={handleRemove}>
+                <Trash />
+              </ButtonRemove>
+            ) : (
+              <ButtonRemove onClick={handleRemove}>
+                <Trash />
+                <p>Remover</p>
+              </ButtonRemove>
+            )}
           </SectionQuantity>
         </SectionDetailsQuantityCoffeeCheckout>
       </SectionImgAndDetails>

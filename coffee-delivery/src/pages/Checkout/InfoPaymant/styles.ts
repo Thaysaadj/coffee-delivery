@@ -9,6 +9,25 @@ export const MainInfoPaymant = styled.main`
   align-self: stretch;
   border-radius: 6px;
   background: ${(porps) => porps.theme["--base-card"]};
+
+  @media  (max-width: 480px) {
+    width: 300px;
+  }
+
+  @media (min-width: 768px){
+
+  }
+
+  @media (min-width: 1024px){
+  
+  }
+
+  @media (min-width:1200px){
+
+  }
+
+  @media (min-width: 2560px){
+  }
 `;
 export const SectionInfoPaymant = styled.section`
   display: flex;
@@ -51,5 +70,27 @@ export const PaymentMethodOptionsContanier = styled.div`
   > p {
     color: ${porps => porps.theme['--base-error']};
     grid-column:span 3 ;
+  }
+
+  @media  (max-width: 480px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px){
+
+  }
+
+  @media (min-width: 1024px){
+
+  }
+
+  @media (min-width:1200px){
+
+  }
+
+  @media (min-width: 2560px){
   }
 `;

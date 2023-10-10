@@ -29,6 +29,10 @@ export const MainAllCoffes = styled.main`
     grid-template-columns: 1fr 1fr 1fr;
 
   }
+
+  @media (min-width: 2560px){
+    padding: 70px 600px;
+  }
 `;
 
 export const AllCoffeeTitle = styled.article`
